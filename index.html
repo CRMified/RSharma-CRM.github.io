@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NGLCC — National LGBT Chamber of Commerce (Sample)</title>
+  <meta name="description" content="NGLCC — Empowering LGBT-owned businesses through certification, advocacy, and programs. Sample site template." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f9fb;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#7c3aed; /* purple */
+      --accent-2:#06b6d4; /* teal */
+      --glass: rgba(255,255,255,0.7);
+      --radius:14px;
+      --max:1100px;
+      --shadow: 0 8px 30px rgba(16,24,40,0.08);
+      --safe-contrast: #0f172a;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #f2f6fb 0%, var(--bg) 100%);
+      color:var(--safe-contrast);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:12px 0;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:48px;height:48px;border-radius:10px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#fff;font-weight:700;font-size:18px;
+      box-shadow:var(--shadow);
+    }
+    nav{display:flex;gap:16px;align-items:center;}
+    nav a{
+      color:var(--muted); text-decoration:none; font-weight:600;
+    }
+    .cta{
+      background:var(--accent); color:#fff; border:none; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer;
+      box-shadow:0 6px 18px rgba(124,58,237,0.18);
+    }
+    /* Hero */
+    .hero{
+      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+      border-radius:20px; padding:36px; margin:20px 0; display:grid; grid-template-columns: 1fr 380px; gap:28px; align-items:center;
+      box-shadow:var(--shadow);
+    }
+    .eyebrow{display:inline-block;background:rgba(124,58,237,0.08); color:var(--accent); padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;}
+    h1{margin:8px 0 12px;font-size:28px;line-height:1.05;}
+    p.lead{margin:0;color:var(--muted);font-size:16px;}
+    .hero-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;}
+    .btn-ghost{background:transparent;border:2px solid rgba(15,23,42,0.06);padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;}
+    .stats{display:flex;gap:18px;margin-top:22px;}
+    .stat{background:rgba(15,23,42,0.03); padding:12px;border-radius:10px;min-width:110px;text-align:center;}
+    .hero-card{background:linear-gradient(180deg,#ffffff,#faf8ff); border-radius:14px;padding:18px;box-shadow:0 6px 16px rgba(16,24,40,0.06);}
+    .hero-card h3{margin:0 0 8px;font-size:16px;}
+    .hero-card p{margin:0;color:var(--muted);font-size:14px;}
+    /* Sections */
+    section{margin:28px 0;}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:var(--shadow);}
+    .card h4{margin:0 0 8px;}
+    .muted{color:var(--muted);font-size:14px;}
+    /* Events */
+    .events-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+    .event{border-radius:12px;padding:14px;background:linear-gradient(180deg,#fff,#fbfbff);border:1px solid rgba(10,10,12,0.02);}
+    .event time{display:inline-block;font-weight:700;color:var(--accent);margin-bottom:8px;}
+    /* About / Get involved */
+    .two-col{display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:start;}
+    .donate{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:18px;border-radius:12px;font-weight:700;text-align:center;}
+    /* Footer */
+    footer{margin-top:32px;padding-top:22px;border-top:1px solid rgba(10,10,12,0.04);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+    /* Responsive */
+    @media (max-width:920px){
+      .hero{grid-template-columns:1fr; padding:20px;}
+      .two-col{grid-template-columns:1fr;}
+      header{flex-direction:column;align-items:flex-start;gap:12px;}
+      nav{order:2;width:100%;display:flex;justify-content:space-between;}
+    }
+    /* small utilities */
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(6,182,212,0.08);color:var(--accent-2);font-weight:700;font-size:13px}
+    .footer-links{display:flex;gap:12px;flex-wrap:wrap;}
+    input,textarea,select{font:inherit;padding:10px;border-radius:8px;border:1px solid rgba(10,10,12,0.06);width:100%;}
+    .form-row{display:grid;gap:10px;margin-bottom:12px;}
+    .small{font-size:13px;color:var(--muted);}
+    .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  </style>
+</head>
+<body>
+  <div class="container" role="document">
+    <header role="banner" aria-label="Main header">
+      <a class="brand" href="#" aria-label="NGLCC home">
+        <div class="logo" aria-hidden="true">N</div>
+        <div>
+          <div style="font-weight:800;">NGLCC</div>
+          <div class="small" style="margin-top:2px;color:var(--muted)">National LGBT Chamber</div>
+        </div>
+      </a>
+
+      <nav role="navigation" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#events">Events</a>
+        <a href="#get-involved">Get Involved</a>
+        <button class="cta" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'})">Donate</button>
+      </nav>
+    </header>
+
+    <main role="main">
+      <section class="hero" aria-label="Hero section">
+        <div>
+          <span class="eyebrow">Certified • Inclusive • Powerful</span>
+          <h1>Advancing LGBT-owned businesses through certification, advocacy, and growth programs.</h1>
+          <p class="lead">We connect certified LGBT Business Enterprises (LGBTBE®) with corporate suppliers, promote policies that expand economic opportunities, and provide training and resources to grow inclusive businesses.</p>
+
+          <div class="hero-actions" role="group" aria-label="Hero actions">
+            <button class="cta" onclick="document.getElementById('programs').scrollIntoView({behavior:'smooth'})">Explore Programs</button>
+            <button class="btn-ghost" onclick="document.getElementById('events').scrollIntoView({behavior:'smooth'})">Upcoming Events</button>
+            <a href="#contact" class="btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">Contact Us</a>
+          </div>
+
+          <div class="stats" aria-hidden="false" style="margin-top:18px">
+            <div class="stat">
+              <div style="font-size:20px;font-weight:800">2,000+</div>
+              <div class="muted">Certified Businesses</div>
+            </div>
+            <div class="stat">
+              <div style="font-size:20px;font-weight:800">150+</div>
+              <div class="muted">Corporate Partners</div>
+            </div>
+            <div class="stat">
+              <div style="font-size:20px;font-weight:800">30+</div>
+              <div class="muted">Local Chapters</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Quick links and highlights">
+          <h3>Why certify?</h3>
+          <p class="muted">Certification opens doors to supplier diversity programs at top corporations and public agencies. Certified businesses gain visibility, mentoring, and contract opportunities.</p>
+
+          <div style="margin-top:14px">
+            <strong>Quick links</strong>
+            <ul class="small" style="padding-left:18px;margin-top:8px;color:var(--muted)">
+              <li><a href="#certification">Get Certified</a></li>
+              <li><a href="#programs">Business Programs</a></li>
+              <li><a href="#events">Supplier Summits</a></li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" aria-labelledby="about-h">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <h2 id="about-h">About NGLCC</h2>
+            <p class="muted">NGLCC (sample) is the largest certifying body and advocacy organization for LGBT-owned businesses. We partner with governments and corporations to create access, growth, and opportunity for diverse entrepreneurs.</p>
+          </div>
+          <div class="pill" aria-hidden="true">Nonprofit • Supplier Diversity</div>
+        </div>
+      </section>
+
+      <section id="programs" aria-labelledby="programs-h">
+        <h3 id="programs-h">Programs & Services</h3>
+        <div class="grid-3" style="margin-top:12px;">
+          <article class="card" aria-labelledby="p-cert">
+            <h4 id="p-cert">Certification</h4>
+            <p class="muted">LGBTBE® certification verifies business ownership and helps connect suppliers to corporate sourcing programs.</p>
+          </article>
+
+          <article class="card" aria-labelledby="p-adv">
+            <h4 id="p-adv">Advocacy</h4>
+            <p class="muted">We influence procurement policies and fight for inclusive economic policy at local and national levels.</p>
+          </article>
+
+          <article class="card" aria-labelledby="p-grow">
+            <h4 id="p-grow">Business Growth</h4>
+            <p class="muted">Mentorship, capacity building, and corporate matchmaking to scale operations and revenue.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="events" aria-labelledby="events-h">
+        <h3 id="events-h">Upcoming Events</h3>
+        <p class="muted" style="margin-top:6px">Workshops, supplier summits, and local networking events — find something near you.</p>
+
+        <div class="events-list" style="margin-top:12px;">
+          <article class="event" aria-labelledby="e1">
+            <time datetime="2025-11-12">Nov 12, 2025</time>
+            <h4 id="e1">National Supplier Summit</h4>
+            <p class="muted">A two-day event connecting certified suppliers with corporate procurement teams.</p>
+            <p class="small" style="margin-top:8px"><strong>Location:</strong> Convention Center — City</p>
+            <div style="margin-top:10px"><button class="btn-ghost" onclick="alert('Register flow placeholder')">Register</button></div>
+          </article>
+
+          <article class="event" aria-labelledby="e2">
+            <time datetime="2025-09-25">Sep 25, 2025</time>
+            <h4 id="e2">Small Business Growth Workshop</h4>
+            <p class="muted">Hands-on workshop on proposal writing and supplier diversity requirements.</p>
+            <p class="small" style="margin-top:8px"><strong>Location:</strong> Virtual (Zoom)</p>
+            <div style="margin-top:10px"><button class="btn-ghost" onclick="alert('Register flow placeholder')">Register</button></div>
+          </article>
+
+          <article class="event" aria-labelledby="e3">
+            <time datetime="2025-12-08">Dec 08, 2025</time>
+            <h4 id="e3">Local Chapter Mixer</h4>
+            <p class="muted">Local chapter networking — meet peers, mentors, and corporate reps.</p>
+            <p class="small" style="margin-top:8px"><strong>Location:</strong> Community Hall — City</p>
+            <div style="margin-top:10px"><button class="btn-ghost" onclick="alert('Register flow placeholder')">Register</button></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="get-involved" aria-labelledby="get-h">
+        <h3 id="get-h">Get Involved</h3>
+        <div class="two-col" style="margin-top:12px;">
+          <div>
+            <p class="muted">Whether you're a business seeking certification, a corporate buyer, or a supporter, there are many ways to participate: become certified, sponsor events, hire certified suppliers, or join a local chapter.</p>
+
+            <div class="grid-3" style="margin-top:16px;">
+              <div class="card">
+                <h4>For Businesses</h4>
+                <p class="muted">Learn about certification, training, and procurement opportunities.</p>
+              </div>
+              <div class="card">
+                <h4>For Corporates</h4>
+                <p class="muted">Partner to meet supplier diversity goals and source certified vendors.</p>
+              </div>
+              <div class="card">
+                <h4>Volunteers</h4>
+                <p class="muted">Support events, mentorship, and community outreach.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside id="donate" class="donate" aria-labelledby="donate-h">
+            <h3 id="donate-h" style="margin:0 0 8px;color:white">Support our work</h3>
+            <p style="margin:0 0 12px;color:rgba(255,255,255,0.92)">Your contribution helps fund certification programs, local chapters, and advocacy.</p>
+            <button class="cta" style="width:100%;background:#04142a" onclick="alert('Donate flow placeholder')">Donate Now</button>
+            <p class="small" style="margin-top:12px;color:rgba(255,255,255,0.9)">Tax-deductible where applicable</p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-h">
+        <h3 id="contact-h">Contact & Newsletter</h3>
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:16px;margin-top:12px;">
+          <form class="card" onsubmit="return handleContactSubmit(event)" novalidate>
+            <div class="form-row">
+              <label for="name">Name <span class="small" aria-hidden="true">*</span></label>
+              <input id="name" name="name" required aria-required="true" placeholder="Your full name" />
+            </div>
+            <div class="form-row">
+              <label for="email">Email <span class="small" aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" required aria-required="true" placeholder="you@example.com" />
+            </div>
+            <div class="form-row">
+              <label for="role">I'm a</label>
+              <select id="role" name="role" aria-label="Select role">
+                <option>Business owner</option>
+                <option>Corporate buyer</option>
+                <option>Volunteer</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="How can we help?"></textarea>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;justify-content:space-between;">
+              <div class="small muted">We respect your privacy. No spam.</div>
+              <div>
+                <button class="cta" type="submit">Send message</button>
+              </div>
+            </div>
+          </form>
+
+          <aside class="card" aria-labelledby="newsletter-h">
+            <h4 id="newsletter-h">Join our newsletter</h4>
+            <p class="muted">Receive event alerts, funding opportunities, and policy updates.</p>
+            <form onsubmit="event.preventDefault(); alert('Subscribed (placeholder)');" style="margin-top:12px;">
+              <label for="nl-email" class="sr-only">Email</label>
+              <input id="nl-email" type="email" placeholder="email@example.com" required />
+              <div style="margin-top:8px;display:flex;gap:8px;">
+                <button class="cta" type="submit" style="flex:1">Subscribe</button>
+              </div>
+            </form>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer role="contentinfo">
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div class="logo" style="width:38px;height:38px;font-size:16px;">N</div>
+        <div>
+          <div style="font-weight:700">NGLCC</div>
+          <div class="small muted">© <span id="year"></span> NGLCC — Sample</div>
+        </div>
+      </div>
+
+      <div class="footer-links" aria-hidden="false">
+        <a href="#privacy" class="small muted">Privacy</a>
+        <a href="#terms" class="small muted">Terms</a>
+        <a href="#sitemap" class="small muted">Sitemap</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleContactSubmit(e){
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      if(!name){
+        alert('Please enter your name.');
+        form.name.focus();
+        return false;
+      }
+      if(!email || !/^\S+@\S+\.\S+$/.test(email)){
+        alert('Please enter a valid email address.');
+        form.email.focus();
+        return false;
+      }
+      // This is a placeholder: in real site, we'd POST to an API endpoint.
+      alert('Thanks, ' + name + '! Your message has been received (this is a demo).');
+      form.reset();
+      return false;
+    }
+
+    // keyboard accessible focus ring
+    (function(){
+      function handleFirstTab(e){
+        if(e.key === 'Tab'){
+          document.documentElement.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
