@@ -37,33 +37,27 @@
       box-shadow: 0 2px 12px rgba(0,0,0,.12);
     }
 
-    /* HEADER — same as form page */
+    /* HEADER */
     .card-header {
-      background: var(--green);
+      background: var(--white);
+      border-bottom: 3px solid var(--green);
       padding: 1.5rem 2rem 1.8rem;
     }
     .logo {
       display: flex;
       align-items: center;
-      gap: .6rem;
       margin-bottom: 1.3rem;
       text-decoration: none;
     }
-    .logo svg { width: 52px; height: 52px; flex-shrink: 0; }
-    .logo-name {
-      color: var(--white);
-      font-size: 1.35rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
+    .logo img { height: 56px; width: auto; display: block; }
     .card-header h1 {
-      color: var(--white);
+      color: var(--green);
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: .5rem;
     }
     .card-header p {
-      color: rgba(255,255,255,.88);
+      color: var(--gray-muted);
       font-size: .92rem;
       line-height: 1.5;
     }
@@ -190,14 +184,7 @@
   <!-- Header -->
   <div class="card-header">
     <a href="web-to-lead.html" class="logo">
-      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <ellipse cx="40" cy="22" rx="10" ry="16" fill="white" transform="rotate(-15 40 22)"/>
-        <ellipse cx="52" cy="28" rx="9" ry="14" fill="white" transform="rotate(15 52 28)"/>
-        <ellipse cx="30" cy="30" rx="8" ry="13" fill="white" transform="rotate(-30 30 30)"/>
-        <rect x="38" y="36" width="4" height="26" rx="2" fill="white"/>
-        <ellipse cx="40" cy="62" rx="8" ry="3" fill="white" opacity=".4"/>
-      </svg>
-      <div class="logo-name">Oakton<br>College</div>
+      <img src="https://www.oakton.edu/_global/images/logo/logo-green.jpg" alt="Oakton College">
     </a>
     <h1>Partner With Us</h1>
     <p>Thank you for reaching out to Oakton College.</p>
