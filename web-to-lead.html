@@ -420,7 +420,7 @@
       </div>
       <div class="field">
         <label class="checkbox-item">
-          <input id="send_email" name="send_email" type="checkbox" value="1" checked/>
+          <input id="00Nfn00000FcnAL" name="00Nfn00000FcnAL" type="checkbox" value="1" checked/>
           <span>Send Email To Partner</span>
         </label>
       </div>
@@ -440,9 +440,8 @@
   document.getElementById('partnerForm').addEventListener('submit', function () {
     // 1. Append first name to retURL as a query param
     const firstName = encodeURIComponent(document.getElementById('first_name').value.trim());
-    const sendEmail = document.getElementById('send_email');
     const base = 'https://crmified.github.io/RSharma-CRM.github.io/thank-you.html';
-    document.getElementById('retURL').value = firstName ? base + '?name=' + firstName + (sendEmail.checked ? '&00Nfn00000FcnAL=1' : '&00Nfn00000FcnAL=0') : base + (sendEmail.checked ? '?00Nfn00000FcnAL=1' : '?00Nfn00000FcnAL=0');
+    document.getElementById('retURL').value = firstName ? base + '?name=' + firstName : base;
     // 2. Sync checkboxes → hidden SF multi-select
     const sfSelect = document.getElementById('sf_support');
     Array.from(sfSelect.options).forEach(opt => opt.selected = false);
