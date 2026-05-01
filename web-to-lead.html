@@ -418,7 +418,6 @@
         <label for="description">Notes</label>
         <textarea maxlength="255" id="description" name="description" type="text" wrap="soft"></textarea>
       </div>
-       <input id="00Nfn00000FcnAL" name="00Nfn00000FcnAL" type="hidden" value="1"/>
       <div class="field">
         <label class="checkbox-item">
           <input id="send_email" name="send_email" type="checkbox" value="1" checked/>
@@ -441,10 +440,9 @@
   document.getElementById('partnerForm').addEventListener('submit', function () {
     // 1. Append first name to retURL as a query param
     const firstName = encodeURIComponent(document.getElementById('first_name').value.trim());
+    const sendEmail = document.getElementById('send_email');
     const base = 'https://crmified.github.io/RSharma-CRM.github.io/thank-you.html';
-    document.getElementById('retURL').value = firstName
-      ? base + '?name=' + firstName
-      : base;
+    document.getElementById('retURL').value = firstName ? base + '?name=' + firstName + (sendEmail.checked ? '&00Nfn00000FcnAL=true' : '&00Nfn00000FcnAL=false') : base + (sendEmail.checked ? '?00Nfn00000FcnAL=true' : '?00Nfn00000FcnAL=false');
 
     // 2. Sync checkboxes → hidden SF multi-select
     const sfSelect = document.getElementById('sf_support');
