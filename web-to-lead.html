@@ -443,7 +443,6 @@
     const sendEmail = document.getElementById('send_email');
     const base = 'https://crmified.github.io/RSharma-CRM.github.io/thank-you.html';
     document.getElementById('retURL').value = firstName ? base + '?name=' + firstName + (sendEmail.checked ? '&00Nfn00000FcnAL=1' : '&00Nfn00000FcnAL=0') : base + (sendEmail.checked ? '?00Nfn00000FcnAL=1' : '?00Nfn00000FcnAL=0');
-    alert(sendEmail.checked);
     // 2. Sync checkboxes → hidden SF multi-select
     const sfSelect = document.getElementById('sf_support');
     Array.from(sfSelect.options).forEach(opt => opt.selected = false);
