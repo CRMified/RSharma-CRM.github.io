@@ -372,14 +372,55 @@
     })();
   </script>
 	<script type='text/javascript'>
+	// ---------------------------------------------------------------
+	// 1. Logged-in member details (PLACEHOLDER - web team replaces this)
+	//    Fill window.legrandChatUser from the site's own login session,
+	//    e.g. rendered by the server into the page:
+	//      window.legrandChatUser = { fullName: 'Jane Doe', email: 'jane@example.com', region: 'US' };
+	//    Leave it undefined for visitors who are not logged in.
+	// ---------------------------------------------------------------
+
+	var LEGRAND_CHAT_REGIONS = ['Asia Pacific', 'Canada', 'EMEA', 'Mexico', 'South America', 'US'];
+
+	// 2. Pass Name, Email and Region as hidden pre-chat fields once the chat client is ready.
+	//    Registered before bootstrap.min.js loads, so the event is never missed.
+	window.addEventListener('onEmbeddedMessagingReady', function () {
+		var user = window.legrandChatUser;
+		if (!user) {
+			return; // not logged in: normal chat, the bot asks as today
+		}
+
+		var fields = {};
+		fields.Customer_Name = 'Rohit Sharma'; // bot limit
+		fields.Customer_Email = 'rsharma@crmified.com';
+		fields.Region = 'EMEA';
+
+		try {
+			embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields(fields);
+		} catch (err) {
+			console.error('Error setting hidden pre-chat fields: ', err);
+		}
+	});
+
+	// 3. Call this from the site's logout handler (needed when logout does not reload the page).
+	function clearLegrandChatUser() {
+		window.legrandChatUser = undefined;
+		try {
+			embeddedservice_bootstrap.prechatAPI.removeHiddenPrechatFields(['Customer_Name', 'Customer_Email', 'Region']);
+		} catch (err) {
+			console.error('Error removing hidden pre-chat fields: ', err);
+		}
+	}
+
+	// 4. Existing Salesforce embed code - unchanged.
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 			embeddedservice_bootstrap.init(
 				'00DgP000002KidF',
-				'Github',
-				'https://legrandav--fullsandbo.sandbox.my.site.com/ESWGithub1722163913919',
+				'Github_AV_Live_Chat_Messaging_Channel',
+				'https://legrandav--fullsandbo.sandbox.my.site.com/ESWGithubAVLiveChatMe1740465959796',
 				{
 					scrt2URL: 'https://legrandav--fullsandbo.sandbox.my.salesforce-scrt.com'
 				}
@@ -389,6 +430,6 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://legrandav--fullsandbo.sandbox.my.site.com/ESWGithub1722163913919/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://legrandav--fullsandbo.sandbox.my.site.com/ESWGithubAVLiveChatMe1740465959796/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
